@@ -16,8 +16,9 @@ class DefaultContainerApp : ContainerApp {
 
 class AplikasiDataSiswa : Application() {
     lateinit var container: ContainerApp
-    override fun onCrate() {
+    override fun onCreate() {
         super.onCreate()
-        this.container = DefaultContainerApp
+        this.container = DefaultContainerApp()
     }
+
 }
