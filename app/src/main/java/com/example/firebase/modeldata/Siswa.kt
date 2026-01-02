@@ -8,7 +8,7 @@ data class Siswa(
 )
 
 data class DetailSiswa(
-    val id: Long,
+    val id: Long = 0,
     val nama: String = "",
     val alamat: String = "",
     val telpon: String = "",
@@ -16,3 +16,13 @@ data class DetailSiswa(
 
 fun DetailSiswa.toDataSiswa(): Siswa = Siswa(id, nama, alamat, telpon)
 fun Siswa.toDetailSiswa(): DetailSiswa = DetailSiswa(id, nama, alamat, telpon)
+
+data class UiStateSiswa(
+   val detailSiswa: DetailSiswa = DetailSiswa(),
+    val isEntryValid: Boolean = false
+
+)
+fun Siswa.toUiStateSiswa(isEntryValid: Boolean = false): UiStateSiswa = UiStateSiswa(
+    detailSiswa = this.toDetailSiswa(),
+    isEntryValid = isEntryValid
+)
